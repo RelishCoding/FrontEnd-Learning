@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单元素</title>
+</head>
+<body>
+    <!-- 表单的基本用法 -->
+    <form action="https://www.baidu.com/s">
+        <input type="text" name="wd">
+        <input type="submit" value="搜索">
+    </form>
+
+    <br><br>
+
+    <form action="http://localhost:8080/test" method="post" enctype="multipart/form-data">
+        <!-- 文本框 -->
+        <input type="text" name="username">
+        <br>
+        <!-- 密码框 -->
+        <input type="password" name="password">
+        <br>
+        <!-- 隐藏框 -->
+        <input type="hidden" name="id" value="1">
+        <br>
+        <!-- 日期框 -->
+        <input type="date" name="birthday">
+        <br>
+
+        <!-- 单选框 -->
+        男<input type="radio" name="sex" value="男" checked>
+        女<input type="radio" name="sex" value="女">
+        <br>
+
+        <!-- 多选框 -->
+        唱歌<input type="checkbox" name="favorites" value="唱歌">
+        逛街<input type="checkbox" name="favorites" value="逛街">
+        游戏<input type="checkbox" name="favorites" value="游戏">
+        <br>
+
+        <!-- 文件选择框 -->
+        <input type="file" name="avatar">
+        <br>
+
+        <!-- 提交按钮 -->
+        <input type="submit" value="提交">
+    </form>
+</body>
+</html>
