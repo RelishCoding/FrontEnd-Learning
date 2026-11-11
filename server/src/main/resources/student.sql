@@ -1,0 +1,16 @@
+drop table if exists student;
+create table student(
+    id int primary key auto_increment,
+    name varchar(32) not null,
+    sex char(1),
+    age tinyint
+);
+
+insert into student(name,sex,age) values
+('宋远桥', '男', 40),
+('俞莲舟', '男', 38),
+('俞岱岩', '男', 32),
+('张松溪', '男', 27),
+('张翠山', '男', 24),
+('殷梨亭', '男', 19),
+('莫声谷', '男', 17);

@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/frontend-learning
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+interceptor:
+  key: abcdefghijklmnopqrstuvwxyz0123456789
+  mode: NONE
+  pass: /api/loginJwt,/api/loginSession
