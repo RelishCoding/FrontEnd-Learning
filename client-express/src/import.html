@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>导入测试</title>
+</head>
+
+<body>
+    <script type="module">
+        // 单个导入
+        import { a1, b1, c1 } from './export.js'
+        import { a2, b2, c2 } from './export.js'
+
+        console.log(a1, b1)
+        c1()
+
+        console.log(a2, b2)
+        c2()
+
+        // 导入默认
+        import x from './export.js'
+        console.log(x)
+
+        // 整体导入
+        import * as module from './export.js'
+        console.log(module)
+        console.log(module.a1, module.b1)
+        module.c1()
+        console.log(module.a2, module.b2)
+        module.c2()
+        console.log(module.default)
+    </script>
+</body>
+
+</html>    
