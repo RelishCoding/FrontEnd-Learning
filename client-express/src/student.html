@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生列表</title>
+</head>
+
+<body>
+    <div>
+        <div class="title">学生列表</div>
+        <div class="thead" id="h">
+            <div class="row bold">
+                <div class="col">编号</div>
+                <div class="col">姓名</div>
+                <div class="col">性别</div>
+                <div class="col">年龄</div>
+            </div>
+        </div>
+
+        <div class="tbody">
+            <!-- <div class="row">
+                <div class="col">1</div>
+                <div class="col">张三</div>
+                <div class="col">男</div>
+                <div class="col">18</div>
+            </div> -->
+        </div>
+    </div>
+
+    <template id="tp">
+        <div class="row">
+            <div class="col">xx</div>
+            <div class="col">xx</div>
+            <div class="col">xx</div>
+            <div class="col">xx</div>
+        </div>
+    </template>
+
+    <style>
+        html,
+        body {
+            font-family: 华文行楷;
+            font-size: 20px;
+        }
+
+        .title {
+            margin-bottom: 10px;
+            font-size: 30px;
+            color: #333;
+            text-align: center;
+        }
+
+        .row {
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+        }
+
+        .col {
+            border: 1px solid #f0f0f0;
+            width: 15%;
+            height: 35px;
+            text-align: center;
+            line-height: 35px;
+        }
+
+        .bold .col {
+            background-color: #f1f1f1;
+        }
+    </style>
+
+    <script>
+        /**
+         * 查找页面元素
+         */
+        document.querySelector('.title'); // 找到 <div class="title">学生列表</div>
+        document.querySelector('.col'); // 找到 <div class="col">编号</div>
+        document.querySelectorAll('.col'); // 找到所有 <div class="col"></div>, 即找到的是一个集合
+
+        const thead = document.querySelector('.thead');
+        // 只在 thead 元素范围内找
+        thead.querySelectorAll('.col');
+
+        document.getElementById("h") // 找到 <div id="h">...</div>
+        document.querySelector("#h") // 找到 <div id="h">...</div>
+
+        /**
+         * 修改元素内容
+         */
+        // innerHTML 会解析内容中的标签
+        document.querySelector('.title').innerHTML = `<div class="row bold">
+                <div class="col">编号</div>
+                <div class="col">姓名</div>
+                <div class="col">性别</div>
+                <div class="col">年龄</div>
+            </div>`
+
+        // innerText 不会解析内容中的标签，返回“可见文本”，受 CSS 影响，合并空白符
+        document.querySelector('.title').innerText = '<span>学生列表</span>'
+
+        // textContent 不会解析内容中的标签，返回“所有原始文本”，不受 CSS 影响，保留空白符
+        document.querySelector('.title').textContent = '<span>侠客列表</span>'
+
+        document.querySelector('.title').innerHTML = '学生列表'
+        document.querySelector('.title').textContent = '侠客列表'
+        document.querySelector('.title').innerText = '学生列表'
+    </script>
+
+    <script>
+        // 将来这些数据从 Java 端返回
+        let array = [
+            { id: 1, name: "张三", sex: "男", age: 18 },
+            { id: 2, name: "李四", sex: "女", age: 19 }
+        ]
+
+        const tbody = document.querySelector('.tbody')
+        const tp = document.getElementById("tp")
+        const row = tp.content
+        const [col1, col2, col3, col4] = row.querySelectorAll('.col')
+        for (const {id, name, sex, age} of array) {
+            col1.textContent = id
+            col2.textContent = name
+            col3.textContent = sex
+            col4.textContent = age
+
+            // 复制元素
+            const newNode = document.importNode(row, true)
+            // 建立父子关系，左边父，右边子
+            tbody.appendChild(newNode)
+        }
+    </script>
+</body>
+
+</html>
