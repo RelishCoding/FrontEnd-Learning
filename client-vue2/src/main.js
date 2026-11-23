@@ -3,7 +3,8 @@ import Vue from 'vue'
 import router from './router'
 import store from './store'
 
-import MyApp1 from './views/ExampleView1.vue'
+// import MyApp1 from './views/ExampleView1.vue'
+import MyApp2 from './views/ExampleView2.vue'
 
 Vue.config.productionTip = false
 
@@ -16,5 +17,5 @@ Vue.config.productionTip = false
 new Vue({
   router,
   store,
-  render: h => h(MyApp1)
+  render: h => h(MyApp2)
 }).$mount('#app')
